@@ -110,7 +110,7 @@ img {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  background-color: #fff;
+  background-color: ##000000;
   box-shadow: 0 1px 4px rgba(146, 161, 176, 0.15);
 }
 
@@ -291,13 +291,13 @@ img {
   z-index: var(--z-back);
 }
 .skills__html {
-  width: 95%;
+  width: 70%;
 }
 .skills__css {
-  width: 85%;
+  width: 70%;
 }
 .skills__js {
-  width: 65%;
+  width: 75%;
 }
 .skills__ux {
   width: 85%;
@@ -483,4 +483,385 @@ img {
   .home__img {
     width: 450px;
   }
+}
+
+.typed-text {
+  display: inline-block;
+  vertical-align: middle; /* sejajarkan ke tengah baris */
+  border-right: 3px solid #4a00e0;
+  font-weight: inherit;
+  line-height: 1;
+  white-space: nowrap;
+  animation: blink 0.7s infinite;
+}
+
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  100% { border-color: #4a00e0; }
+}
+
+.typed-text {
+  vertical-align: middle; /* atau: vertical-align: -2px; */
+}
+
+
+.home__title {
+  font-size: 2rem;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+/* Baris pertama (Hi, I'm + ARBA'IN) */
+.home__line {
+  display: inline-flex;          /* sejajarkan teks dalam satu baris */
+  align-items: baseline;         /* biar huruf sejajar dasar */
+  gap: 8px;                      /* jarak antar teks */
+}
+
+/* "Hi, I'm" */
+.home__intro {
+  font-weight: 500;
+}
+
+/* Efek teks ketik */
+.typed-text {
+  border-right: 3px solid #4a00e0;
+  animation: blink 0.7s infinite;
+  white-space: nowrap;
+  overflow: visible;
+  font-weight: 600;
+  color: #4a00e0;
+  line-height: 1;
+}
+
+@keyframes blink {
+  0%, 50% { border-color: transparent; }
+  100% { border-color: #4a00e0; }
+}
+
+/* "Web Designer" di baris kedua */
+.home__title-color {
+  color: #4a00e0;
+  font-weight: 600;
+  display: block; /* pastikan tampil di baris baru */
+  margin-top: 5px;
+}
+/* === OPENING SCREEN === */
+#opening {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #111; /* warna background opening */
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* pastikan di atas semua elemen */
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+.opening__text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  opacity: 0;
+  animation: fadeInText 1.5s ease forwards;
+}
+
+/* animasi muncul teks */
+@keyframes fadeInText {
+  to {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+/* saat animasi selesai, hilangkan layar */
+#opening.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+
+
+/* ===== HOME SECTION ===== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 4rem 10%;
+  background-color: #fff;
+}
+
+.home__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.home__text {
+  flex: 1 1 45%;
+}
+
+.home__text h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0b0c10;
+  line-height: 1.3;
+}
+
+.home__name {
+  color: #4d5bff; /* warna biru seperti di gambar */
+}
+
+.home__button {
+  display: inline-block;
+  background: #4d5bff;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  margin-top: 2rem;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.home__button:hover {
+  background: #2e3bff;
+}
+
+.home__social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.home__social-icon {
+  font-size: 1.8rem;
+  color: #0b0c10;
+  transition: 0.3s;
+}
+
+.home__social-icon:hover {
+  color: #4d5bff;
+}
+
+.home__img {
+  flex: 1 1 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__blob {
+  background-color: #4d5bff;
+  width: 350px;
+  height: 350px;
+  border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.home__blob img {
+  width: 85%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+@media (max-width: 768px) {
+  .home__container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .home__text h1 {
+    font-size: 2.2rem;
+  }
+
+  .home__blob {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+
+.opening__text {
+  display: inline-block;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #4d5bff;
+}
+
+.letter {
+  opacity: 0;
+  display: inline-block;
+  animation: fadeInLetter 0.3s forwards;
+}
+
+@keyframes fadeInLetter {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Urutan muncul per huruf */
+.letter:nth-child(1) { animation-delay: 0.1s; }
+.letter:nth-child(2) { animation-delay: 0.3s; }
+.letter:nth-child(3) { animation-delay: 0.5s; }
+.letter:nth-child(4) { animation-delay: 0.7s; }
+.letter:nth-child(5) { animation-delay: 0.9s; }
+.letter:nth-child(6) { animation-delay: 1.1s; }
+
+
+#opening {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 5s ease, visibility 5s ease;
+}
+
+#opening.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.floating-img {
+  width: 320px;
+  filter: drop-shadow(0 0 20px #4d5bff);
+  transition: transform 0.3s ease;
+  transform: translateY(-40px); /* Naik ke atas 40px */
+}
+.home__image {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  transform: translateY(-50px); /* Naik 50px */
+}
+.floating-img {
+  margin-top: -60px;
+}
+
+.dark {
+  background: #111;
+  color: white;
+}
+#toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+}
+
+
+.l-header {
+  background: #0f172a; /* warna bebas */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+
+.nav {
+  background: #0f172a; /* ganti warna sesukamu */
+  padding: 15px 0;
+  border-bottom: 2px solid #e63a48;
+}
+
+.nav__link {
+  color: white;
+}
+
+.nav__link:hover {
+  color: #000; /* warna saat hover */
+}
+
+.l-header,
+.nav {
+  border: none;
+  box-shadow: none;
+}
+.nav__logo {
+  color: #ffffff;
+}
+
+.active-link::after {
+    display: none !important;
+}
+
+.skills__img {
+    width: 250px;     /* ubah sesuai kebutuhan */
+    height: auto;
+    border-radius: 20px;
+}
+
+.skills__img {
+    width: 250px; /* ukuran kecil sebelumnya */
+    height: auto;
+    margin-top: 20px;   /* jarak atas */
+    margin-left: 200px;  /* jarak kiri */
+}
+
+
+.footer__social a i {
+    color: #ffffff; /* Warna putih */
+    font-size: 24px; /* Ukuran ikon, bisa diubah */
+    transition: color 0.3s;
+}
+
+.footer__social a:hover i {
+    color: #ff4d5a; /* Warna saat hover */
+}
+
+
+#skill-text {
+  color: white;
+  font-weight: bold;
+}
+
+
+.home__img {
+    margin-top: -40px; /* Atur nilai sesuai kebutuhan */
+}
+
+.home__blob {
+    transform: translateY(-40px);
+}
+<style>
+  .home__img {
+    margin-top: -40px;
+  }
+</style>
+
+.nav__link {
+    position: relative;
+}
+
+.nav__link.active-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #0af;  /* warna garis biru */
+    border-radius: 2px;
 }

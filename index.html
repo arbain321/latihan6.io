@@ -10,13 +10,114 @@
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 
     <title>Portfolio website complete</title>
+    <script>
+window.addEventListener("load", () => {
+  const opening = document.getElementById("opening");
+
+  // Tunggu 2.5 detik lalu hilangkan animasi opening
+  setTimeout(() => {
+    opening.classList.add("hidden");
+  }, 1000);
+
+  setTimeout(() => {
+  opening.classList.add("hidden");
+}, 500)
+});
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <title>Portfolio website complete</title>
+    
+    <script>
+    // ... Script untuk menyembunyikan #opening ...
+    </script>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const skills = ["Web Designer", "IT Support", "Gamer", "Futsal", "Coding"];
+    let skillIndex = 0;
+    let charIndex = 0;
+    
+    // Perbaikan: Targetkan ID "dynamic-skill-home"
+    const el = document.getElementById("dynamic-skill-home"); 
+
+    function typeSkill() {
+        // Pastikan elemen ditemukan sebelum memproses
+        if (el) { 
+            if(charIndex < skills[skillIndex].length) {
+                el.textContent += skills[skillIndex][charIndex];
+                charIndex++;
+                setTimeout(typeSkill, 150); // Kecepatan ketik
+            } else {
+                // Selesai mengetik satu skill, tunggu
+                setTimeout(() => {
+                    // Hapus teks skill saat ini
+                    el.textContent = ""; 
+                    charIndex = 0;
+                    // Pindah ke skill berikutnya
+                    skillIndex = (skillIndex + 1) % skills.length; 
+                    typeSkill();
+                }, 1000); // Jeda sebelum skill berikutnya
+            }
+        }
+    }
+
+    // Hanya jalankan jika elemen ditemukan
+    if (el) {
+        typeSkill();
+    }
+});
+</script>
+    </head>
+<body>
+    </body>
+</html>
+
+
 </head>
 <body>
+
+
+
+    <!--===== OPENING ANIMATION =====-->
+<div id="opening">
+  <div class="opening__logo">
+    <h1 class="opening__text"><h1><span id="type"></span></h1>
+
+<script>
+const text = ["Selamat Datang!", "Website Keren", "Dibuat Dengan Gaya "];
+let idx = 0;
+let char = 0;
+
+function typing() {
+  if (char < text[idx].length) {
+    document.getElementById("type").innerHTML += text[idx][char];
+    char++;
+    setTimeout(typing, 100);
+  } else {
+    setTimeout(() => {
+      document.getElementById("type").innerHTML = "";
+      char = 0;
+      idx = (idx + 1) % text.length;
+      typing();
+    }, 800);
+  }
+}
+typing();
+</script></h1>
+  </div>
+</div>
+<h1 class="opening__text"><span id="open-type"></span></h1>
+
     <!--===== HEADER =====-->
     <header class="l-header">
         <nav class="nav bd-grid">
             <div>
-                <a href="#" class="nav__logo">Marlon</a>
+                <a href="#" class="nav__logo">ARBA'IN</a>
             </div>
 
             <div class="nav__menu" id="nav-menu">
@@ -36,19 +137,29 @@
     </header>
 
     <main class="l-main">
+
+
         <!--===== HOME =====-->
-        <section class="home bd-grid" id="home">
-            <div class="home__data">
-                <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Marlon</span><br> Web Designer</h1>
+       <!--===== HOME =====-->
+<!--===== HOME =====-->
+<section class="home" id="home">
+  <div class="home__container">
+    <div class="home__text">
+      <h1>
+        Hi,<br> I’m <span class="home__name">ARBA'IN</span><br>
+        <span id="dynamic-skill-home">Web Designer</span> 
+      </h1>
+      <a href="#contact" class="button home__button">Contact</a>
 
-                <a href="#" class="button">Contact</a>
-            </div>
+      <div class="home__social">
+        <a href="#" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+        <a href="#" class="home__social-icon"><i class='bx bxl-behance'></i></a>
+        <a href="#" class="home__social-icon"><i class='bx bxl-github'></i></a>
+      </div>
+    </div>
+  </div>
+  </section>
 
-            <div class="home__social">
-                <a href="" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
-                <a href="" class="home__social-icon"><i class='bx bxl-behance' ></i></a>
-                <a href="" class="home__social-icon"><i class='bx bxl-github' ></i></a>
-            </div>
 
             <div class="home__img">
                 <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -57,24 +168,30 @@
                     </mask>
                     <g mask="url(#mask0)">
                         <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
-                        <image class="home__blob-img" x="50" y="60" href="assets/img/perfil.png"/>
+                        <image class="home__blob-img" x="50" y="-50" href="assets/img/prefil.png"/>
+                        
+
                     </g>
                 </svg>
             </div>
         </section>
 
         <!--===== ABOUT =====-->
-        <section class="about section " id="about">
+       <section class="about section" id="about">
+
             <h2 class="section-title">About</h2>
 
             <div class="about__container bd-grid">
                 <div class="about__img">
-                    <img src="assets/img/about.jpg" alt="">
+                    <img src="assets/img/about.jpeg" alt="">
                 </div>
 
                 <div>
-                    <h2 class="about__subtitle">I'am Marlon</h2>
-                    <p class="about__text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate cum expedita quo culpa tempora, assumenda, quis fugiat ut voluptates soluta, aut earum nemo recusandae cumque perferendis! Recusandae alias accusamus atque.</p>           
+                    <h2 class="about__subtitle">I'am Arbain</h2>
+                    <p class="about__text">Hai! Saya arbain, seseorang pelajar Smk Dewantara yang suka bereksperimen dengan  coding, 
+                    Buat saya, setiap proyek adalah kesempatan untuk belajar hal baru dan mengekspresikan ide dengan cara yang kreatif.
+                    Website ini saya buat sebagai ruang untuk menampilkan hasil karya, proses berpikir, dan proyek-proyek yang saya kerjakan.
+                    Kalau kamu suka dengan apa yang saya buat, ayo ngobrol — siapa tahu kita bisa bikin sesuatu yang keren bareng! 🚀</p>           
                 </div>                                   
             </div>
         </section>
@@ -86,61 +203,57 @@
             <div class="skills__container bd-grid">          
                 <div>
                     <h2 class="skills__subtitle">Profesional Skills</h2>
-                    <p class="skills__text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit optio id vero amet, alias architecto consectetur error eum eaque sit.</p>
+                    <p class="skills__text">“Aku belajar banyak hal dari sekolah maupun pengalaman sendiri. Setiap skill ini aku kembangkan sedikit demi sedikit supaya bisa jadi lebih baik dan lebih siap menghadapi proyek atau tantangan baru.”
+                    </p>
 
                     <div class="skills__data">
                         <div class="skills__names">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-router-fill" viewBox="0 0 16 16">
-                              <path d="M5.525 3.025a3.5 3.5 0 0 1 4.95 0 .5.5 0 1 0 .707-.707 4.5 4.5 0 0 0-6.364 0 .5.5 0 0 0 .707.707"/>
-                              <path d="M6.94 4.44a1.5 1.5 0 0 1 2.12 0 .5.5 0 0 0 .708-.708 2.5 2.5 0 0 0-3.536 0 .5.5 0 0 0 .707.707Z"/>
-                              <path d="M2.974 2.342a.5.5 0 1 0-.948.316L3.806 8H1.5A1.5 1.5 0 0 0 0 9.5v2A1.5 1.5 0 0 0 1.5 13H2a.5.5 0 0 0 .5.5h2A.5.5 0 0 0 5 13h6a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5h.5a1.5 1.5 0 0 0 1.5-1.5v-2A1.5 1.5 0 0 0 14.5 8h-2.306l1.78-5.342a.5.5 0 1 0-.948-.316L11.14 8H4.86zM2.5 11a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m4.5-.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2.5.5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m1.5-.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0m2 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0"/>
-                              <path d="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
-                          </svg>
-                          <span class="skills__name">Network Engineer</span>
+                        <i class='bx bx-laptop skills__icon'></i>
+
+                          <span class="skills__name">IT Support</span>
                       </div>
                       <div class="skills__bar skills__html">
 
                       </div>
                       <div>
-                        <span class="skills__percentage">95%</span>
+                        <span class="skills__percentage">70%</span>
                     </div>
                 </div>
 
 
                 <div class="skills__data">
                     <div class="skills__names">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-server" viewBox="0 0 16 16">
-                          <path d="M1.333 2.667C1.333 1.194 4.318 0 8 0s6.667 1.194 6.667 2.667V4c0 1.473-2.985 2.667-6.667 2.667S1.333 5.473 1.333 4z"/>
-                          <path d="M1.333 6.334v3C1.333 10.805 4.318 12 8 12s6.667-1.194 6.667-2.667V6.334a6.5 6.5 0 0 1-1.458.79C11.81 7.684 9.967 8 8 8s-3.809-.317-5.208-.876a6.5 6.5 0 0 1-1.458-.79z"/>
-                          <path d="M14.667 11.668a6.5 6.5 0 0 1-1.458.789c-1.4.56-3.242.876-5.21.876-1.966 0-3.809-.316-5.208-.876a6.5 6.5 0 0 1-1.458-.79v1.666C1.333 14.806 4.318 16 8 16s6.667-1.194 6.667-2.667z"/>
-                      </svg>
-                      <span class="skills__name">System Administrator</span>
+                     <i class='bx bx-joystick skills__icon'></i>
+
+                      <span class="skills__name">Gamer</span>
                   </div>
                   <div class="skills__bar skills__css">
 
+
                   </div>
                   <div>
-                    <span class="skills__percentage">85%</span>
+                    <span class="skills__percentage">70%</span>
                 </div>
             </div>
 
 
             <div class="skills__data">
                 <div class="skills__names">
-                    <i class='bx bxl-javascript skills__icon' ></i>
-                    <span class="skills__name">JAVASCRIPT</span>
+                   <i class='bx bx-football skills__icon'></i>
+
+                    <span class="skills__name">Futsal</span>
                 </div>
                 <div class="skills__bar skills__js">
 
                 </div>
                 <div>
-                    <span class="skills__percentage">65%</span>
+                    <span class="skills__percentage">75%</span>
                 </div>
             </div>
             <div class="skills__data">
                 <div class="skills__names">
                     <i class='bx bxs-paint skills__icon'></i>
-                    <span class="skills__name">UX/UI</span>
+                    <span class="skills__name">Coding</span>
                 </div>
                 <div class="skills__bar skills__ux">
 
@@ -152,7 +265,7 @@
         </div>
 
         <div>              
-            <img src="assets/img/work3.jpg" alt="" class="skills__img">
+            <img src="assets/img/work7.jpeg" alt="" class="skills__img">
         </div>
     </div>
 </section>
@@ -163,16 +276,16 @@
 
     <div class="work__container bd-grid">
         <a href="" class="work__img">
-            <img src="assets/img/work1.jpg" alt="">
+            <img src="assets/img/work1.webp" alt="">
         </a>
         <a href="" class="work__img">
-            <img src="assets/img/work2.jpg" alt="">
+            <img src="assets/img/work2.png" alt="">
         </a>
         <a href="" class="work__img">
             <img src="assets/img/work3.jpg" alt="">
         </a>
         <a href="" class="work__img">
-            <img src="assets/img/work4.jpg" alt="">
+            <img src="assets/img/work4.jpeg" alt="">
         </a>
         <a href="" class="work__img">
             <img src="assets/img/work5.jpg" alt="">
@@ -200,11 +313,19 @@
 
 <!--===== FOOTER =====-->
 <footer class="footer">
-    <p class="footer__title">Marlon</p>
+    <p class="footer__title">ARBA'IN</p>
     <div class="footer__social">
-        <a href="#" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
-        <a href="#" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
-        <a href="#" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
+        <a href="https://www.linkedin.com/in/Arbain Mahardika" target="_blank" class="home__social-icon">
+        <i class='bx bxl-linkedin'></i>
+    <a href="https://www.instagram.com/baam077/" target="_blank" class="home__social-icon">
+  <i class='bx bxl-instagram'></i>
+</a>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+   <a href="https://www.tiktok.com/@bamz.077" target="_blank" class="home__social-icon">
+  <i class='bx bxl-tiktok'></i>
+</a>
+
     </div>
     <p class="footer__copy">&#169; Bedimcode. All rigths reserved</p>
 </footer>
@@ -215,5 +336,67 @@
 
 <!--===== MAIN JS =====-->
 <script src="assets/js/main.js"></script>
+
+<div class="cursor"></div>
+
+<style>
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff4d5a;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+</style>
+
+<script>
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+</script>
+
+
+<style>
+  .home__img {
+    margin-top: -40px;
+  }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const skills = ["Web Designer", "IT Support", "Gamer", "Futsal", "Coding"];
+    let skillIndex = 0;
+    let charIndex = 0;
+    
+    // Perbaikan di sini: Ganti "dynamic-skill" menjadi "skill-text"
+    const el = document.getElementById("skill-text"); 
+
+    function typeSkill() {
+        if(charIndex < skills[skillIndex].length) {
+            el.textContent += skills[skillIndex][charIndex];
+            charIndex++;
+            setTimeout(typeSkill, 150); // kecepatan ketik
+        } else {
+            setTimeout(() => {
+                el.textContent = "";
+                charIndex = 0;
+                skillIndex = (skillIndex + 1) % skills.length;
+                typeSkill();
+            }, 1000); // jeda sebelum skill berikutnya
+        }
+    }
+
+    // Pastikan elemen ditemukan sebelum menjalankan fungsi
+    if (el) {
+        typeSkill();
+    }
+});
+</script>
+
+
 </body>
 </html>
